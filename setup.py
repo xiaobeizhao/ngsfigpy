@@ -31,7 +31,7 @@ def get_data_files(x,Fext=[".txt",".png",".pdf"]):
 
 config = {
   'name': 'ngsfig',
-  'version': '0.1',
+  'version': '0.1.1',
   'author': 'Xiaobei Zhao',
   'author_email': 'xiaobei_zhao(at)med.unc.edu',
   'description': ('Classes and functions for NGS data illustration'),

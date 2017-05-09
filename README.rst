@@ -31,7 +31,8 @@ Run this script or paste it into a Python console.
            
 Download and Install
 --------------------
-* `GitHub <https://github.com/xiaobeizhao/ngsfigpy>`
+* `GitHub (beta) <https://github.com/xiaobeizhao/ngsfigpy>`
+* `PyPI <https://pypi.python.org/pypi/ngsfig>`
 
   
 Dependencies
@@ -42,7 +43,8 @@ Dependencies
 * `pandas>=0.19.2 <https://pypi.python.org/pypi/pandas/0.19.2>`
 * `tabulate>=0.7.5 <https://pypi.python.org/pypi/tabulate/0.7.5>`
 * `matplotlib>=2.0.0 <https://pypi.python.org/pypi/matplotlib/2.0.0>`
-* `xmisc <https://github.com/xiaobeizhao/xmiscpy>`
+* `xmisc (beta) <https://github.com/xiaobeizhao/xmiscpy>`
+* `xmisc <https://pypi.python.org/pypi/xmisc>`
 
   
 License
