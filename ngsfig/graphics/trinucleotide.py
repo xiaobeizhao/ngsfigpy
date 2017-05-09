@@ -245,16 +245,20 @@ class TriNucleotide:
 
 
 
-def read_triNucleotide(inFpath,inFtype,**kwargs):
+def read_triNucleotide(inFpath,inFtype=None,colnames=None,**kwargs):
   if inFtype in ['demo']:
-    ret=read_triNucleotide_demo(inFpath,**kwargs)
+    ret=read_triNucleotide_demo(inFpath,colnames=["triplet","count"],**kwargs)
+  elif inFtype in ['uncseq']:
+    ret=read_triNucleotide_demo(inFpath,colnames=["triplet","count","freq"],**kwargs)
   else:
-    raise ValueError('TBA for `inFtype="%s"`' % inFtype)
+    ret=read_triNucleotide_demo(inFpath,colnames=colnames,**kwargs)
+    ## raise ValueError('TBA for `inFtype="%s"`' % inFtype)
   return(ret)
 
 def read_triNucleotide_demo(inFpath,colnames=["triplet","count"]):
   inData=pd.read_table(inFpath,comment="#",header=None,names=colnames)
   columns_=inData.columns
+  # print("columns_",columns_)
   columns2_=[e for e in columns_ if not e in ["triplet", "count"]]
   if not "triplet" in columns_:
     raise Exception('`triplet` must be in the column')
@@ -268,24 +272,19 @@ def read_triNucleotide_demo(inFpath,colnames=["triplet","count"]):
   return(inData)
 
 
-def demo(
-  inFpath=None,verbose=False,
-  pdfFpath="trinucleotide_demo.pdf",
-  id="SKCM (Stage III/IV)",colnames=["triplet","count"]
-  ):
-  
-  # from pkg_resources import resource_stream, Requirement
-  # input = resource_stream(Requirement.parse("ngsfig"), "data/trinucleotide_demo.txt")
+def main(
+  inFpath,
+  inFtype,
+  colnames,
+  id,
+  pdfFpath,
+  verbose=False
+  ):  
 
-  if inFpath is None:
-    inFpath=os.path.join("data", "trinucleotide_demo.txt")
-     
-  inData=read_triNucleotide(inFpath,inFtype="demo",colnames=colnames)
+  inData=read_triNucleotide(inFpath,inFtype=inFtype,colnames=colnames)
   
   if verbose:
     print(tabulate(inData, headers='keys', tablefmt='psql'))
-  
-  
    
   
   obj=TriNucleotide(inData,id=id)
@@ -317,7 +316,36 @@ def demo(
     )
   
   logsave(pdfFpath)
+  return(None)
   
+
+def demo(  
+  inFpath,
+  inFtype="demo",
+  colnames=None,
+  id="SKCM (Stage III/IV)",
+  pdfFpath="trinucleotide_demo.pdf",
+  *args,
+  **kwargs
+  ):
+  
+  # from pkg_resources import resource_stream, Requirement
+  # input = resource_stream(Requirement.parse("ngsfig"), "data/trinucleotide_demo.txt")
+  # if inFpath is None:
+  #   inFpath=os.path.join("data", "trinucleotide_demo.txt")
+
+  ## 
+  main(
+    inFpath=inFpath,
+    inFtype=inFtype,
+    colnames=colnames,
+    id=id,
+    pdfFpath=pdfFpath,
+    *args,
+    **kwargs    
+    )
+  return(None)
+
 
 
 if __name__ == "__main__":
@@ -334,5 +362,5 @@ if __name__ == "__main__":
   # print(obj.procData)
   
   
-  demo()
-  
+  # demo(inFpath=os.path.join("data", "trinucleotide_demo.txt"))
+  None
