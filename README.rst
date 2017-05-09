@@ -34,8 +34,10 @@ Run this script or paste it into a Python console.
            
 Download and Install
 --------------------
-.. __: https://github.com/xiaobeizhao/ngsfigpy
+* `GitHub <https://github.com/xiaobeizhao/xmiscpy>`
+* `GitHub <https://github.com/xiaobeizhao/ngsfigpy>`
 
+  
 License
 -------
 Code and documentation are available according to the GNU LGPL License.
