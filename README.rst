@@ -13,9 +13,6 @@ Example: Legoplot in NGSfig
   from pkg_resources import get_distribution, resource_stream, Requirement
   from ngsfig.graphics import trinucleotide
 
-  if get_distribution("setuptools").version < "33.1.1":
-    warnings.warn("The code below has only been tested via setuptools (=33.1.1)")
-  
   with resource_stream(Requirement.parse("ngsfig"), "data/trinucleotide_demo.txt") as input:
     trinucleotide.demo(input)
 
@@ -34,8 +31,18 @@ Run this script or paste it into a Python console.
            
 Download and Install
 --------------------
-* `GitHub <https://github.com/xiaobeizhao/xmiscpy>`
 * `GitHub <https://github.com/xiaobeizhao/ngsfigpy>`
+
+  
+Dependencies
+------------
+* `nose <https://pypi.python.org/pypi/nose>`
+* `setuptools>=33.1.1 <https://pypi.python.org/pypi/setuptools/33.1.1>`
+* `numpy>=1.11.3 <https://pypi.python.org/pypi/numpy/1.11.3>`
+* `pandas>=0.19.2 <https://pypi.python.org/pypi/pandas/0.19.2>`
+* `tabulate>=0.7.5 <https://pypi.python.org/pypi/tabulate/0.7.5>`
+* `matplotlib>=2.0.0 <https://pypi.python.org/pypi/matplotlib/2.0.0>`
+* `xmisc <https://github.com/xiaobeizhao/xmiscpy>`
 
   
 License
